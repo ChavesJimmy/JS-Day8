@@ -156,6 +156,7 @@ minusBtns.forEach((btn, i) => {
    //updates the cart total product 
    const cartTotalItems = () => {
     let totalItems = 0;
+    
     for (let items of cart){
       totalItems += items.qtty;
 
@@ -192,6 +193,8 @@ const plusQtty = (index) => {
   cart[index].qtty++;
   createRows();
   cartTotal();
+  cartTotalItems();
+
  };
  
 //decreases item quantity
@@ -203,6 +206,8 @@ const minusQtty = (index) => {
   }
   createRows();
   cartTotal();
+  cartTotalItems();
+
  };
  
 //deletes item from cart
@@ -211,4 +216,6 @@ const deleteItem = (index) => {
   cart.splice(index, 1);
   createRows();
   cartTotal();
+  cartTotalItems();
+
  };
