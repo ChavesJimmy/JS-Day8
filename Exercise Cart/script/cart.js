@@ -94,6 +94,7 @@ const addToCart = (flowers) => {
  // console.table(cart);
  createRows();
  cartTotal();
+ cartTotalItems();
  };
 
  const createRows = () => {
@@ -152,17 +153,22 @@ minusBtns.forEach((btn, i) => {
   });
 });
 };
+   //updates the cart total product 
+   const cartTotalItems = () => {
+    let totalItems = 0;
+    for (let items of cart){
+      totalItems += items.qtty;
+
+    }
+    document.getElementById("totItems").innerHTML = totalItems;
+    }
+
  //updates the cart total amount (+discount)
 const cartTotal = () => {
   let total = 0;
   for (let  item of cart) {
     total += item.price * item.qtty;
-
- /*    if(total >= 25){
-    total = (item.price * item.qtty)-((item.price * item.qtty)*0.1)
-  }
-    else {total += item.price * item.qtty;
-  } */}
+}
   
   document.getElementById("price").innerHTML = currencyFormater.format(total);
  };
