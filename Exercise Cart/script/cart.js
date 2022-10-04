@@ -177,7 +177,12 @@ if(total > 30){
   document.getElementById("newprice").innerHTML = `New price : ${currencyFormater.format(newtotal)}`;
   document.getElementById("price-discount").innerHTML = `Discount 15% : - ${currencyFormater.format(discount)}`;
 
-   };
+   }
+   else{
+    document.getElementById("newprice").innerHTML = ``;
+  document.getElementById("price-discount").innerHTML = ``;
+
+   }
   document.getElementById("price").innerHTML = currencyFormater.format(total);
 }
 
