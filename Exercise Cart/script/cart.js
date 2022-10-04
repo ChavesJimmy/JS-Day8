@@ -163,15 +163,24 @@ minusBtns.forEach((btn, i) => {
     document.getElementById("totItems").innerHTML = totalItems;
     }
 
- //updates the cart total amount (+discount)
+ //updates the cart total amount (+15% discount)
 const cartTotal = () => {
   let total = 0;
   for (let  item of cart) {
     total += item.price * item.qtty;
 }
-  
+  let discount = 0;
+  let newtotal = total-discount
+if(total > 30){
+  let discount = total*0.15;
+  newtotal = total-discount
+  document.getElementById("newprice").innerHTML = `New price : ${currencyFormater.format(newtotal)}`;
+  document.getElementById("price-discount").innerHTML = `Discount 15% : - ${currencyFormater.format(discount)}`;
+
+   };
   document.getElementById("price").innerHTML = currencyFormater.format(total);
- };
+}
+
  
 //increases item quantity
 const plusQtty = (index) => {
